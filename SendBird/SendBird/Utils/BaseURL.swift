@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum ServerURL: String {
+enum BaseURL: String {
     case base = "https://api.itbook.store/1.0/"
 }

@@ -1,14 +1,14 @@
 //
-//  SendBird_RecuriteTests.swift
-//  SendBird_RecuriteTests
+//  SendBirdTests.swift
+//  SendBirdTests
 //
-//  Created by apple on 2021/03/20.
+//  Created by apple on 2021/03/21.
 //
 
 import XCTest
-@testable import SendBird_Recurite
+@testable import SendBird
 
-class SendBird_RecuriteTests: XCTestCase {
+class SendBirdTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
