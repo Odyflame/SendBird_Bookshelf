@@ -43,6 +43,7 @@ class ViewController: UIViewController {
         flowLayout.minimumLineSpacing = Constant.spacing
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
         collectionView.register(
             BookCollectionViewCell.self,
             forCellWithReuseIdentifier: BookCollectionViewCell.reuseIdentifier
@@ -102,7 +103,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func getSearchBooksData(word: String, page: Int) {
+    func getSearchBooksDataWithPage(word: String, page: Int) {
         
         if word == "" {
             return
@@ -160,7 +161,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let detailView = DetailViewController(isbn13: self.books[indexPath.item].isbn13 ?? "")
+        navigationController?.pushViewController(detailView, animated: true)
     }
 }
 
@@ -185,7 +187,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         page += 1
-        getSearchBooksData(word: word, page: page)
+        getSearchBooksDataWithPage(word: word, page: page)
     }
 }
 

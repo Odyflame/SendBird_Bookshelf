@@ -24,6 +24,7 @@
 		188D8F262607985700B57FB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F222607985700B57FB9 /* ViewController.swift */; };
 		188D8F272607985700B57FB9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F232607985700B57FB9 /* SearchViewModel.swift */; };
 		188D8F282607985700B57FB9 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F242607985700B57FB9 /* BookCollectionViewCell.swift */; };
+		188FEBDD2608DA150062BEAC /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188FEBDC2608DA150062BEAC /* Detail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		188D8F222607985700B57FB9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		188D8F232607985700B57FB9 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		188D8F242607985700B57FB9 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		188FEBDC2608DA150062BEAC /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				188638ED2607BDA0007E1A4F /* DetailViewController.swift */,
+				188FEBDC2608DA150062BEAC /* Detail.storyboard */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				188D8EDB2607969900B57FB9 /* LaunchScreen.storyboard in Resources */,
 				188D8ED82607969900B57FB9 /* Assets.xcassets in Resources */,
 				188D8F1C260797DD00B57FB9 /* Splash.storyboard in Resources */,
+				188FEBDD2608DA150062BEAC /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
