@@ -10,7 +10,11 @@ import UIKit
 class DetailViewController: UIViewController {
     
     enum Constant {
+        enum Title {
+            static let detailTitle = "Book Detail"
+        }
         static let textViewPlaceholder = "여기에 아무거나 입력해주세요!"
+        static let descLabelPlaceholder = "this is just for Testing, so please check them.."
     }
     
     var isbn13: String
@@ -19,12 +23,16 @@ class DetailViewController: UIViewController {
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .cyan
+        view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        view.keyboardDismissMode = .onDrag
         return view
     }()
     
     lazy var scrollContentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
         return view
     }()
     
@@ -49,7 +57,8 @@ class DetailViewController: UIViewController {
     lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.image = UIImage(named: "noimage")
+        view.image = UIImage(named: "noImage")
+        view.backgroundColor = .systemPink
         return view
     }()
     
@@ -58,8 +67,9 @@ class DetailViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.distribution = .fillEqually
-        stack.spacing = 5
+        stack.layer.cornerRadius = 20
+        stack.distribution = .fillProportionally
+        stack.backgroundColor = .blue
         return stack
     }()
     
@@ -74,14 +84,15 @@ class DetailViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Title"
+        label.font = .boldSystemFont(ofSize: 18)
         return label
     }()
     
     lazy var descLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "descsdfsdfadsfasdf fdsafd fsad fsda fsd f sdafadsf a dsf sadf saf ds ew fsdaf as wq fsa fsd fa  dsfads  adsf"
-        label.numberOfLines = 3
+        label.text = Constant.descLabelPlaceholder
+        label.numberOfLines = 4
         return label
     }()
     
@@ -105,10 +116,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.isTranslucent = true
-        
+        navigationItem.title = Constant.Title.detailTitle
         congigureLayout()
+        getDetailData()
     }
     
     func congigureLayout() {
@@ -119,31 +130,34 @@ class DetailViewController: UIViewController {
         scrollContentView.addSubview(noteTextView)
         
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             scrollContentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             scrollContentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             scrollContentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             scrollContentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
             scrollContentView.heightAnchor.constraint(equalToConstant: view.frame.height + 200),
-            scrollContentView.widthAnchor.constraint(equalToConstant: view.frame.width),
+            scrollContentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
             imageView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor),
             imageView.topAnchor.constraint(equalTo: scrollContentView.topAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
+            imageView.heightAnchor.constraint(equalTo: scrollContentView.widthAnchor),
             
-            stackTitleView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor),
-            stackTitleView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor),
-            stackTitleView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 100),
+            stackTitleView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 10),
+            stackTitleView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -10),
+            stackTitleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            stackTitleView.heightAnchor.constraint(equalToConstant: 200),
             
             noteTextView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor),
             noteTextView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor),
-            noteTextView.topAnchor.constraint(equalTo: stackTitleView.bottomAnchor),
+            noteTextView.topAnchor.constraint(equalTo: stackTitleView.bottomAnchor, constant: 10),
             noteTextView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor),
         ])
     }
@@ -154,7 +168,17 @@ class DetailViewController: UIViewController {
                 return
             }
             
-            self.detailBook = data
+            DispatchQueue.main.async {
+                self.detailBook = data
+                
+                self.titleLabel.text = data.title
+                self.descLabel.text = data.desc
+                self.subTitleLabel.text = data.subtitle
+                guard let imageURL = URL(string: data.image ?? "noimage") else {
+                    return
+                }
+                self.imageView.load(url: imageURL)
+            }
         }
     }
     
@@ -166,7 +190,7 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
-            textView.textColor = UIColor.black
+            textView.textColor = .systemPink
         }
         
     }
@@ -174,7 +198,7 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = Constant.textViewPlaceholder
-            textView.textColor = UIColor.lightGray
+            textView.textColor = .lightGray
         }
     }
 }
