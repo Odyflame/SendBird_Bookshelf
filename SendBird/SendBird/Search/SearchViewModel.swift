@@ -7,7 +7,17 @@
 
 import Foundation
 
-
+// no Rx...
 protocol SearchViewModelnput {
     //var currentPage: Behavior
 }
+
+protocol SearchViewModelOutput {
+    
+}
+
+protocol SearchViewModelType {
+    
+}
+
+
