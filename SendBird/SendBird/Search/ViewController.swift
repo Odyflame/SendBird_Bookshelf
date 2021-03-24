@@ -110,15 +110,19 @@ class ViewController: UIViewController {
         }
         
         BookAPIManager.shared.getSearchBooks(search: word, page: page) { (BooksData) in
-            guard let data = BooksData else {
+            guard let data = BooksData,
+                  let dataBooks = data.books else {
                 return
             }
             
-            self.books += data.books ?? []
+            if dataBooks.count == 0 {
+                return
+            }
+            
+            self.books += dataBooks
             DispatchQueue.main.async {
                 self.SearchCollectionView.reloadData()
             }
-
         }
     }
     
@@ -155,7 +159,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionViewCell.reuseIdentifier, for: indexPath) as? BookCollectionViewCell else {
             return BookCollectionViewCell()
         }
-        
+        cell.thumbnailView.image = UIImage(named: "noimage")
         cell.book = self.books[indexPath.item]
         return cell
     }
@@ -183,10 +187,11 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard indexPath.row == self.books.count - 1 || indexPath.row == self.books.count - 2 else {
+        guard indexPath.row == self.books.count - 1 else {
             return
         }
         page += 1
+        print("page number hahahaha")
         getSearchBooksDataWithPage(word: word, page: page)
     }
 }
@@ -208,7 +213,7 @@ extension ViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - for pagination 1
+// MARK: - for pagination way 1
 //extension ViewController {
 //    func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        let height: CGFloat = scrollView.frame.size.height
@@ -223,7 +228,7 @@ extension ViewController: UISearchBarDelegate {
 //    }
 //}
 
-// MARK: - for pagination 3
+// MARK: - for pagination way 3
 //extension ViewController: UICollectionViewDataSourcePrefetching {
 //    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
 //        for indexPath in indexPaths {

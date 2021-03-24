@@ -9,6 +9,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
+    // MARK: - Constant value
     enum Constant {
         enum Title {
             static let detailTitle = "Book Detail"
@@ -17,13 +18,13 @@ class DetailViewController: UIViewController {
         static let descLabelPlaceholder = "this is just for Testing, so please check them.."
     }
     
+    // MARK: - Properties
     var isbn13: String
     var detailBook: Book?
     
     lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .cyan
         view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         view.keyboardDismissMode = .onDrag
         return view
@@ -58,7 +59,10 @@ class DetailViewController: UIViewController {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.image = UIImage(named: "noImage")
-        view.backgroundColor = .systemPink
+        view.contentMode = .scaleAspectFit
+        view.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapImage(_:)))
+        view.addGestureRecognizer(tapGesture)
         return view
     }()
     
@@ -67,9 +71,17 @@ class DetailViewController: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.layer.cornerRadius = 20
+        stack.layer.cornerRadius = 15
         stack.distribution = .fillProportionally
-        stack.backgroundColor = .blue
+        stack.backgroundColor = .lightGray
+        stack.layer.shadow(
+            color: UIColor(red: 138.0 / 255.0, green: 149.0 / 255.0, blue: 158.0 / 255.0, alpha: 1),
+            alpha: 0.2,
+            x: 0,
+            y: 10,
+            blur: 60,
+            spread: 0
+        )
         return stack
     }()
     
@@ -102,9 +114,11 @@ class DetailViewController: UIViewController {
         view.delegate = self
         view.text = Constant.textViewPlaceholder
         view.textColor = .lightGray
+        view.font = .systemFont(ofSize: 18)
         return view
     }()
     
+    // MARK: - View init
     init(isbn13: String) {
         self.isbn13 = isbn13
         super.init(nibName: nil, bundle: nil)
@@ -120,7 +134,20 @@ class DetailViewController: UIViewController {
         navigationItem.title = Constant.Title.detailTitle
         congigureLayout()
         getDetailData()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name:UIResponder.keyboardWillShowNotification,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name:UIResponder.keyboardWillHideNotification,
+            object: nil)
     }
+    
+    // MARK: - functions for ViewControllers
     
     func congigureLayout() {
         view.addSubview(scrollView)
@@ -131,8 +158,6 @@ class DetailViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -155,10 +180,10 @@ class DetailViewController: UIViewController {
             stackTitleView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
             stackTitleView.heightAnchor.constraint(equalToConstant: 200),
             
-            noteTextView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor),
-            noteTextView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor),
+            noteTextView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 10),
+            noteTextView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -10),
             noteTextView.topAnchor.constraint(equalTo: stackTitleView.bottomAnchor, constant: 10),
-            noteTextView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor),
+            noteTextView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor, constant: -5),
         ])
     }
     
@@ -168,8 +193,9 @@ class DetailViewController: UIViewController {
                 return
             }
             
+            self.detailBook = data
+            
             DispatchQueue.main.async {
-                self.detailBook = data
                 
                 self.titleLabel.text = data.title
                 self.descLabel.text = data.desc
@@ -182,7 +208,45 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @objc func tapImage(_ sender: UITapGestureRecognizer) {
+        
+        guard let urlString = detailBook?.url,
+              let url = URL(string: urlString) else {
+            return
+        }
+        
+        UIApplication.shared.open(url, options: [:])
+        
+    }
     
+    @objc func keyboardWillShow(notification:NSNotification) {
+        
+        // 이 코드는 스크롤뷰 내에서 스크롤뷰를 올릴 때 사용한다.
+        // 지금 프로젝트는 뷰 자체를 올릴 것이기 때문에 이것은 쓰지 않는다.
+        //        guard let userInfo = notification.userInfo else { return }
+        //        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        //        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        //
+        //        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        //        contentInset.bottom = keyboardFrame.size.height + 20
+        //        scrollView.contentInset = contentInset
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+        
+        // 스크롤뷰를 올릴 때 사용
+        //        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        //        scrollView.contentInset = contentInset
+        
+        if view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
 }
 
 extension DetailViewController: UITextViewDelegate {
@@ -190,7 +254,7 @@ extension DetailViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
-            textView.textColor = .systemPink
+            textView.textColor = .systemOrange
         }
         
     }

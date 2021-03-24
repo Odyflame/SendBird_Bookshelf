@@ -9,6 +9,7 @@ import UIKit
 
 class BookCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Properties
     lazy var stack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [thumbnailView, stackView])
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +75,6 @@ class BookCollectionViewCell: UICollectionViewCell {
             guard let url = URL(string: book?.image ?? "") else {
                 return
             }
-            thumbnailView.layer.cornerRadius = 20
             thumbnailView.load(url: url)
             titleLabel.text = book?.title
             subtitleLabel.text = book?.subtitle
@@ -82,6 +82,7 @@ class BookCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    // MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = false
@@ -101,19 +102,5 @@ class BookCollectionViewCell: UICollectionViewCell {
             stack.topAnchor.constraint(equalTo: contentView.topAnchor),
             stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
-        //        addSubview(thumbnailView)
-        //        addSubview(stackView)
-        //
-        //        NSLayoutConstraint.activate([
-        //            thumbnailView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-        //            thumbnailView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-        //            thumbnailView.topAnchor.constraint(equalTo: contentView.topAnchor),
-        //            thumbnailView.widthAnchor.constraint(equalTo: thumbnailView.heightAnchor),
-        //
-        //            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-        //            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-        //            stackView.topAnchor.constraint(equalTo: thumbnailView.bottomAnchor),
-        //            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-        //        ])
     }
 }

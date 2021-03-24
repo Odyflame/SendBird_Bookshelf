@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18766647260B704C0097AEA7 /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18766646260B704C0097AEA7 /* CALayer+.swift */; };
 		188638EE2607BDA0007E1A4F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188638ED2607BDA0007E1A4F /* DetailViewController.swift */; };
 		188D8ECF2607969700B57FB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8ECE2607969700B57FB9 /* AppDelegate.swift */; };
 		188D8ED82607969900B57FB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188D8ED72607969900B57FB9 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18766646260B704C0097AEA7 /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		188638ED2607BDA0007E1A4F /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		188D8ECB2607969700B57FB9 /* SendBird.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SendBird.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188D8ECE2607969700B57FB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				188D8F13260797C200B57FB9 /* BaseURL.swift */,
 				188D8F14260797C200B57FB9 /* UIImageView+.swift */,
+				18766646260B704C0097AEA7 /* CALayer+.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				188D8F282607985700B57FB9 /* BookCollectionViewCell.swift in Sources */,
 				188D8ECF2607969700B57FB9 /* AppDelegate.swift in Sources */,
 				188D8F15260797C200B57FB9 /* BaseURL.swift in Sources */,
+				18766647260B704C0097AEA7 /* CALayer+.swift in Sources */,
 				188638EE2607BDA0007E1A4F /* DetailViewController.swift in Sources */,
 				188D8F262607985700B57FB9 /* ViewController.swift in Sources */,
 				188D8F16260797C200B57FB9 /* UIImageView+.swift in Sources */,
