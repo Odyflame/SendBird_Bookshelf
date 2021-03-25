@@ -82,6 +82,9 @@ class DetailViewController: UIViewController {
             blur: 60,
             spread: 0
         )
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+
         return stack
     }()
     
