@@ -20,4 +20,7 @@ protocol SearchViewModelType {
     
 }
 
+class SearchViewModel: SearchViewModelnput, SearchViewModelOutput, SearchViewModelType {
+    
+}
 

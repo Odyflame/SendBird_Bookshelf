@@ -159,7 +159,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCollectionViewCell.reuseIdentifier, for: indexPath) as? BookCollectionViewCell else {
             return BookCollectionViewCell()
         }
-        cell.thumbnailView.image = UIImage(named: "noimage")
+        
+        cell.thumbnailView.image = UIImage(named: BooksConstant.noImage)
+        cell.titleLabel.text = BooksConstant.searchCellTitle
+        cell.subtitleLabel.text = BooksConstant.searchCellSubTitle
+        cell.priceLabel.text = BooksConstant.noPrice
+        
         cell.book = self.books[indexPath.item]
         return cell
     }
@@ -168,6 +173,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let detailView = DetailViewController(isbn13: self.books[indexPath.item].isbn13 ?? "")
         navigationController?.pushViewController(detailView, animated: true)
     }
+    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {

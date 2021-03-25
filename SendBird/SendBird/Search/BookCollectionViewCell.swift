@@ -21,7 +21,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     
     lazy var thumbnailView: UIImageView = {
         var view = UIImageView()
-        view.image = UIImage(named: "noimage")
+        view.image = UIImage(named: BooksConstant.noImage)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 10
@@ -44,7 +44,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Title"
+        label.text = BooksConstant.searchCellTitle
         label.textAlignment = .left
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
@@ -53,7 +53,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "SubTitle"
+        label.text = BooksConstant.searchCellSubTitle
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 14)
         return label
@@ -62,7 +62,7 @@ class BookCollectionViewCell: UICollectionViewCell {
     lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "$0.00"
+        label.text = BooksConstant.noPrice
         label.textAlignment = .left
         label.font = UIFont.italicSystemFont(ofSize: 12)
         return label
