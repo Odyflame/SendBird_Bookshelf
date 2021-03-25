@@ -12,4 +12,6 @@ enum BooksConstant {
     static let searchCellTitle = "Title"
     static let searchCellSubTitle = "SubTitle"
     static let noPrice = "$0.00"
+    
+    static let coreDataModelName = "Note"
 }
