@@ -16,6 +16,11 @@ class BookCollectionViewCell: UICollectionViewCell {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.spacing = 5
+        stack.layer.cornerRadius = 10
+        stack.layer.borderWidth = 0.1
+        stack.backgroundColor = .systemTeal
+        stack.isLayoutMarginsRelativeArrangement = true
+        stack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
         return stack
     }()
     
@@ -25,7 +30,6 @@ class BookCollectionViewCell: UICollectionViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 10
-        view.layer.borderWidth = 0.1
         view.layer.masksToBounds = true
         return view
     }()
@@ -36,7 +40,7 @@ class BookCollectionViewCell: UICollectionViewCell {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fillEqually
-        stack.spacing = 3
+        stack.spacing = 2
         stack.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return stack
     }()

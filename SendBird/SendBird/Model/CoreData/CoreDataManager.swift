@@ -43,10 +43,10 @@ class CoreDataManager: NSObject {
         }
     }
     
-    // MARK: - Insert Note
-    func add(newNote: String, isbn13: String) -> (Bool, Error) {
-        let managedContext = CoreDataManager.sharedManger.persistantContainer.viewContext
-        
-        //var coredataTypeArr: []
-    }
+//    // MARK: - Insert Note
+//    func add(newNote: String, isbn13: String) -> (Bool, Error) {
+//        let managedContext = CoreDataManager.sharedManger.persistantContainer.viewContext
+//
+//        //var coredataTypeArr: []
+//    }
 }

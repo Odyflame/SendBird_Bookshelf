@@ -135,6 +135,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isTranslucent = true
         navigationItem.title = Constant.Title.detailTitle
+        view.backgroundColor = .systemGray6
         congigureLayout()
         getDetailData()
         
