@@ -40,6 +40,6 @@ MVC
 
 ------
 ### 기능 시연
-|![Main](https://user-images.githubusercontent.com/44191131/112639894-22774080-8e84-11eb-81b5-c52aef1c4a1a.PNG)|
- ![IMG_1244](https://user-images.githubusercontent.com/44191131/112639950-34f17a00-8e84-11eb-93f3-c8f1732681b4.PNG) |
+|---|----|
+|![Main](https://user-images.githubusercontent.com/44191131/112639894-22774080-8e84-11eb-81b5-c52aef1c4a1a.PNG) | ![IMG_1244](https://user-images.githubusercontent.com/44191131/112639950-34f17a00-8e84-11eb-93f3-c8f1732681b4.PNG)
 |----|-----|
