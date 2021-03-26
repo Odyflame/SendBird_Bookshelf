@@ -56,9 +56,11 @@ class ViewController: UIViewController {
         return collectionView
     }()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
+        getNewBooksData()
         configureSearchController()
         configureLayout()
     }
@@ -66,7 +68,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         word = ""
         page = 0
-        getNewBooksData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,6 +75,7 @@ class ViewController: UIViewController {
         page = 0
     }
 
+    // MARK: - Method
     func getNewBooksData() {
         print("이거 하는거냐?")
         BookAPIManager.shared.getNewBooks { (BooksData) in
