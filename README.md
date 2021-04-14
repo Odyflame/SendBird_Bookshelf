@@ -1,7 +1,7 @@
 # SendBird_Bookshelf
 > Develop SendBird Bookshelf app
 
-## 해당 과제를 구현하면서 주의해야 할 것들
+## 해당 과제를 구현하면서 주의해야 할 것들 (Sendbird에 Feedback을 요청하여 받아온 리스트들)
 * 요구 사항을 얼마나 충실히 구현하였는가?
 * 전체적인 구조, 모델링이 얼마나 적절한가?
 * 개발하고자 하는 플랫폼에 대해서 얼마나 이해하고 있는가?
