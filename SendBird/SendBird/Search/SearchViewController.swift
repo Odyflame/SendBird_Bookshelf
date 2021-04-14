@@ -15,7 +15,7 @@ var bottomSafeInset: CGFloat {
     UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0
 }
 
-class ViewController: UIViewController {
+class SearchViewController: UIViewController {
     
     enum Constant {
         static let spacing: CGFloat = 11
@@ -77,7 +77,6 @@ class ViewController: UIViewController {
 
     // MARK: - Method
     func getNewBooksData() {
-        print("이거 하는거냐?")
         BookAPIManager.shared.getNewBooks { (BooksData) in
             guard let data = BooksData else {
                 return
@@ -153,7 +152,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource Implementation
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension SearchViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.books.count
     }
@@ -179,7 +178,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension SearchViewController: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(
             top: 32,
@@ -200,23 +199,23 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         page += 1
-        print("page number hahahaha")
         getSearchBooksDataWithPage(word: word, page: page)
     }
 }
 
 // MARK: - UISearchResultsUpdating Delegate
-extension ViewController: UISearchResultsUpdating {
+extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let word = searchController.searchBar.text else {
             return
         }
         self.word = word
+        self.books = []
         getSearchBooksData(word: word)
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.getNewBooksData()
     }

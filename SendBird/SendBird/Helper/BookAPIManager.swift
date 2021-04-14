@@ -30,7 +30,6 @@ public class BookAPIManager {
                 let apiResponse: BooksData = try JSONDecoder().decode(BooksData.self, from: data)
                 completion(apiResponse)
             } catch(let err) {
-                print("오디야?")
                 completion(nil)
                 debugPrint(err.localizedDescription)
             }
@@ -55,7 +54,6 @@ public class BookAPIManager {
                 let apiResponse: BooksData = try JSONDecoder().decode(BooksData.self, from: data)
                 completion(apiResponse)
             } catch(let err) {
-                print("여기야?")
                 completion(nil)
                 debugPrint(err.localizedDescription)
             }
@@ -80,7 +78,6 @@ public class BookAPIManager {
                 let apiResponse: BooksData = try JSONDecoder().decode(BooksData.self, from: data)
                 completion(apiResponse)
             } catch(let err) {
-                print("여기야?")
                 completion(nil)
                 debugPrint(err.localizedDescription)
             }

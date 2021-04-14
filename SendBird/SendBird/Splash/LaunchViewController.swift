@@ -17,11 +17,9 @@ class LaunchViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        let viewController = ViewController()
+        let viewController = SearchViewController()
         
-        print("우왕")
         guard let window = UIApplication.shared.windows.filter({$0.isKeyWindow}).first else {
-            print("우우왕")
           return
         }
         let navigationController = UINavigationController(rootViewController: viewController)

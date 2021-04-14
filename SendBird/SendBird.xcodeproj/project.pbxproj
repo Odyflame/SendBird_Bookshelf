@@ -27,8 +27,7 @@
 		188D8F1C260797DD00B57FB9 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188D8F1A260797DD00B57FB9 /* Splash.storyboard */; };
 		188D8F1D260797DD00B57FB9 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F1B260797DD00B57FB9 /* LaunchViewController.swift */; };
 		188D8F252607985700B57FB9 /* SectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F212607985700B57FB9 /* SectionHeaderReusableView.swift */; };
-		188D8F262607985700B57FB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F222607985700B57FB9 /* ViewController.swift */; };
-		188D8F272607985700B57FB9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F232607985700B57FB9 /* SearchViewModel.swift */; };
+		188D8F262607985700B57FB9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F222607985700B57FB9 /* SearchViewController.swift */; };
 		188D8F282607985700B57FB9 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F242607985700B57FB9 /* BookCollectionViewCell.swift */; };
 		188FEBDD2608DA150062BEAC /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188FEBDC2608DA150062BEAC /* Detail.storyboard */; };
 /* End PBXBuildFile section */
@@ -77,8 +76,7 @@
 		188D8F1A260797DD00B57FB9 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 		188D8F1B260797DD00B57FB9 /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		188D8F212607985700B57FB9 /* SectionHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderReusableView.swift; sourceTree = "<group>"; };
-		188D8F222607985700B57FB9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		188D8F232607985700B57FB9 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		188D8F222607985700B57FB9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		188D8F242607985700B57FB9 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		188FEBDC2608DA150062BEAC /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,9 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				188D8F242607985700B57FB9 /* BookCollectionViewCell.swift */,
-				188D8F232607985700B57FB9 /* SearchViewModel.swift */,
 				188D8F212607985700B57FB9 /* SectionHeaderReusableView.swift */,
-				188D8F222607985700B57FB9 /* ViewController.swift */,
+				188D8F222607985700B57FB9 /* SearchViewController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -368,12 +365,11 @@
 				188D8F15260797C200B57FB9 /* BaseURL.swift in Sources */,
 				18766647260B704C0097AEA7 /* CALayer+.swift in Sources */,
 				188638EE2607BDA0007E1A4F /* DetailViewController.swift in Sources */,
-				188D8F262607985700B57FB9 /* ViewController.swift in Sources */,
+				188D8F262607985700B57FB9 /* SearchViewController.swift in Sources */,
 				185CA2BE260CBA32004606A4 /* CoreDataManager.swift in Sources */,
 				1888FB3E260CB6C20091A33B /* Note.xcdatamodeld in Sources */,
 				188D8F16260797C200B57FB9 /* UIImageView+.swift in Sources */,
 				1888FB37260CB1230091A33B /* BooksConstant.swift in Sources */,
-				188D8F272607985700B57FB9 /* SearchViewModel.swift in Sources */,
 				1888FB45260CB9260091A33B /* Note+CoreDataProperties.swift in Sources */,
 				188D8F0E260797B400B57FB9 /* Book.swift in Sources */,
 				188D8F252607985700B57FB9 /* SectionHeaderReusableView.swift in Sources */,
