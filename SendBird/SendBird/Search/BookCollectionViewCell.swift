@@ -77,10 +77,11 @@ class BookCollectionViewCell: UICollectionViewCell {
 
     var book: Book? {
         didSet {
-            guard let url = URL(string: book?.image ?? "") else {
+            guard let imageUrl = URL(string: book?.image ?? "") else {
                 return
             }
-            thumbnailView.load(url: url)
+            
+            thumbnailView.loadImage(at: imageUrl)
             titleLabel.text = book?.title
             subtitleLabel.text = book?.subtitle
             priceLabel.text = book?.price
@@ -100,8 +101,11 @@ class BookCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        onReuse()
         thumbnailView.image = UIImage(named: BooksConstant.noImage)
+        thumbnailView.cancelImageLoad()
+        /**
+         We also remove the current image from the cell in prepareForReuse so it doesn’t show an old image while loading a new one. Cells are reused quite often so doing the appropriate cleanup in prepareForReuse is crucial to prevent artifacts from old data on a cell from showing up when you don’t want to.
+         */
       }
     
     func configureLayout() {
