@@ -162,12 +162,14 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             return BookCollectionViewCell()
         }
         
-        cell.thumbnailView.image = UIImage(named: BooksConstant.noImage)
         cell.titleLabel.text = BooksConstant.searchCellTitle
         cell.subtitleLabel.text = BooksConstant.searchCellSubTitle
         cell.priceLabel.text = BooksConstant.noPrice
         
         cell.book = self.books[indexPath.item]
+        
+        
+        
         return cell
     }
     

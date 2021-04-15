@@ -8,7 +8,7 @@
 import Foundation
 
 enum BooksConstant {
-    static let noImage = "noimage"
+    static let noImage = "noImage"
     static let searchCellTitle = "Title"
     static let searchCellSubTitle = "SubTitle"
     static let noPrice = "$0.00"

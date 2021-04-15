@@ -73,7 +73,8 @@ class BookCollectionViewCell: UICollectionViewCell {
     }()
     
     static let reuseIdentifier = "BookCVCIdentifier"
-    
+    var onReuse: () -> Void = {}
+
     var book: Book? {
         didSet {
             guard let url = URL(string: book?.image ?? "") else {
@@ -96,6 +97,12 @@ class BookCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        onReuse()
+        thumbnailView.image = UIImage(named: BooksConstant.noImage)
+      }
     
     func configureLayout() {
         addSubview(stack)
