@@ -175,6 +175,9 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
         navigationController?.pushViewController(detailView, animated: true)
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchController.searchBar.endEditing(true)
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
@@ -209,7 +212,7 @@ extension SearchViewController: UISearchResultsUpdating {
             return
         }
         self.word = word
-        self.books = []
+        //self.books = []
         getSearchBooksData(word: word)
     }
 }
