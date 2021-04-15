@@ -30,6 +30,8 @@
 		188D8F262607985700B57FB9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F222607985700B57FB9 /* SearchViewController.swift */; };
 		188D8F282607985700B57FB9 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F242607985700B57FB9 /* BookCollectionViewCell.swift */; };
 		188FEBDD2608DA150062BEAC /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188FEBDC2608DA150062BEAC /* Detail.storyboard */; };
+		E98C49782626EB57009B560C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C49772626EB57009B560C /* ImageLoader.swift */; };
+		E98C49802627D300009B560C /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C497F2627D300009B560C /* UIImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		188D8F222607985700B57FB9 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		188D8F242607985700B57FB9 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		188FEBDC2608DA150062BEAC /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		E98C49772626EB57009B560C /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		E98C497F2627D300009B560C /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				188D8F07260797A400B57FB9 /* BookAPIManager.swift */,
+				E98C49772626EB57009B560C /* ImageLoader.swift */,
+				E98C497F2627D300009B560C /* UIImageLoader.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -374,6 +380,8 @@
 				188D8F0E260797B400B57FB9 /* Book.swift in Sources */,
 				188D8F252607985700B57FB9 /* SectionHeaderReusableView.swift in Sources */,
 				188D8F08260797A400B57FB9 /* BookAPIManager.swift in Sources */,
+				E98C49782626EB57009B560C /* ImageLoader.swift in Sources */,
+				E98C49802627D300009B560C /* UIImageLoader.swift in Sources */,
 				1888FB44260CB9260091A33B /* Note+CoreDataClass.swift in Sources */,
 				188D8F1D260797DD00B57FB9 /* LaunchViewController.swift in Sources */,
 				188D8F0F260797B400B57FB9 /* Secton.swift in Sources */,

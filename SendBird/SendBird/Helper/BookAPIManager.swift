@@ -78,6 +78,7 @@ public class BookAPIManager {
                 let apiResponse: BooksData = try JSONDecoder().decode(BooksData.self, from: data)
                 completion(apiResponse)
             } catch(let err) {
+                
                 completion(nil)
                 debugPrint(err.localizedDescription)
             }

@@ -162,12 +162,11 @@ extension SearchViewController: UICollectionViewDataSource, UICollectionViewDele
             return BookCollectionViewCell()
         }
         
-        cell.thumbnailView.image = UIImage(named: BooksConstant.noImage)
-        cell.titleLabel.text = BooksConstant.searchCellTitle
-        cell.subtitleLabel.text = BooksConstant.searchCellSubTitle
-        cell.priceLabel.text = BooksConstant.noPrice
-        
+        /**
+         이 작업은 cellForRowAt 안에서 수행합니다. 즉, 목록에 표시할 셀을 요청할 때마다 이 방법이 해당 셀에 대해 호출됩니다. 따라서 부하와 취소는 세포의 수명 주기와 매우 밀접하게 연관되어 있습니다. 이 경우 우리가 원하는 것과 정확히 일치합니다.
+         */
         cell.book = self.books[indexPath.item]
+        
         return cell
     }
     
