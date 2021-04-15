@@ -21,7 +21,7 @@
 		188D8EF12607969900B57FB9 /* SendBirdUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8EF02607969900B57FB9 /* SendBirdUITests.swift */; };
 		188D8F08260797A400B57FB9 /* BookAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F07260797A400B57FB9 /* BookAPIManager.swift */; };
 		188D8F0E260797B400B57FB9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F0C260797B400B57FB9 /* Book.swift */; };
-		188D8F0F260797B400B57FB9 /* Secton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F0D260797B400B57FB9 /* Secton.swift */; };
+		188D8F0F260797B400B57FB9 /* BookSecton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F0D260797B400B57FB9 /* BookSecton.swift */; };
 		188D8F15260797C200B57FB9 /* BaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F13260797C200B57FB9 /* BaseURL.swift */; };
 		188D8F16260797C200B57FB9 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D8F14260797C200B57FB9 /* UIImageView+.swift */; };
 		188D8F1C260797DD00B57FB9 /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188D8F1A260797DD00B57FB9 /* Splash.storyboard */; };
@@ -72,7 +72,7 @@
 		188D8EF22607969900B57FB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188D8F07260797A400B57FB9 /* BookAPIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookAPIManager.swift; sourceTree = "<group>"; };
 		188D8F0C260797B400B57FB9 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
-		188D8F0D260797B400B57FB9 /* Secton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secton.swift; sourceTree = "<group>"; };
+		188D8F0D260797B400B57FB9 /* BookSecton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookSecton.swift; sourceTree = "<group>"; };
 		188D8F13260797C200B57FB9 /* BaseURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURL.swift; sourceTree = "<group>"; };
 		188D8F14260797C200B57FB9 /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		188D8F1A260797DD00B57FB9 /* Splash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 			children = (
 				1888FB3B260CB65B0091A33B /* CoreData */,
 				188D8F0C260797B400B57FB9 /* Book.swift */,
-				188D8F0D260797B400B57FB9 /* Secton.swift */,
+				188D8F0D260797B400B57FB9 /* BookSecton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,7 +384,7 @@
 				E98C49802627D300009B560C /* UIImageLoader.swift in Sources */,
 				1888FB44260CB9260091A33B /* Note+CoreDataClass.swift in Sources */,
 				188D8F1D260797DD00B57FB9 /* LaunchViewController.swift in Sources */,
-				188D8F0F260797B400B57FB9 /* Secton.swift in Sources */,
+				188D8F0F260797B400B57FB9 /* BookSecton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

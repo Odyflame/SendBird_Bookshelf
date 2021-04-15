@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Section: Hashable {
+class BookSection: Hashable {
     var id = UUID()
     var title: String
     var books: [Book]
@@ -21,15 +21,14 @@ class Section: Hashable {
         hasher.combine(id)
     }
     
-    static func == (lhs: Section, rhs: Section) -> Bool {
+    static func == (lhs: BookSection, rhs: BookSection) -> Bool {
         lhs.id == rhs.id
     }
 }
 
-extension Section {
-    static var allSections: [Section] = [
-        Section(title: "New", books: [] ),
-        Section(title: "Search", books: [])
+extension BookSection {
+    static var allSections: [BookSection] = [
+        BookSection(title: "New", books: [] ),
+        BookSection(title: "Search", books: [])
     ]
- 
 }
