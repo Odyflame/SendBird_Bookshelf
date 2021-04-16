@@ -14,7 +14,6 @@ struct BooksData: Codable, Hashable {
     let books: [Book]?
 }
 
-
 struct Book: Codable, Hashable {
     let title: String?
     let subtitle: String?
