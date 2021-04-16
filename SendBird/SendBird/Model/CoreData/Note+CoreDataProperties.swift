@@ -21,6 +21,6 @@ extension Note {
 
 }
 
-extension Note : Identifiable {
+extension Note {
     
 }

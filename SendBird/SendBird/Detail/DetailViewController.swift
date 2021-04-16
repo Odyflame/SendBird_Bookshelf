@@ -16,6 +16,12 @@ class DetailViewController: UIViewController {
         }
         static let textViewPlaceholder = "여기에 아무거나 입력해주세요!"
         static let descLabelPlaceholder = "this is just for Testing, so please check them.."
+        
+        enum SaveButtonTitle: String {
+            case add = "Add"
+            case update = "Update"
+        }
+        static let deleteButtonTitle = "Delete"
     }
     
     // MARK: - Properties
@@ -114,11 +120,20 @@ class DetailViewController: UIViewController {
     lazy var noteTextView: UITextView = {
         let view = UITextView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.delegate = self
         view.text = Constant.textViewPlaceholder
         view.textColor = .lightGray
         view.font = .systemFont(ofSize: 18)
         return view
+    }()
+    
+    var saveButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: Constant.SaveButtonTitle.add.rawValue, style: .plain, target: self, action: #selector(tapSave))
+        return  button
+    }()
+    
+    var deleteButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: Constant.deleteButtonTitle, style: .plain, target: self, action: #selector(tapDelete))
+        return  button
     }()
     
     // MARK: - View init
@@ -136,8 +151,11 @@ class DetailViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         navigationItem.title = Constant.Title.detailTitle
         view.backgroundColor = .systemGray6
+        noteTextView.delegate = self
+        setNaviViewUI()
         congigureLayout()
         getDetailData()
+        getNote()
         
         NotificationCenter.default.addObserver(
             self,
@@ -152,6 +170,10 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - functions for ViewControllers
+    
+    func setNaviViewUI() {
+        self.navigationItem.rightBarButtonItems = [saveButton, deleteButton]
+    }
     
     func congigureLayout() {
         view.addSubview(scrollView)
@@ -212,6 +234,41 @@ class DetailViewController: UIViewController {
         }
     }
     
+    func getNote() {
+        print(isbn13)
+        CoreDataManager.sharedManger.getNote(isbn13: isbn13) { result in
+            
+            guard let getNote = result else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.noteTextView.text = getNote.note
+                self.noteTextView.textColor = .systemOrange
+                self.saveButton.title = Constant.SaveButtonTitle.update.rawValue
+            }
+        }
+    }
+    
+    @objc func tapSave(sender: UIBarButtonItem) {
+        let note = NoteData(isbn13: detailBook?.isbn13, note: noteTextView.text)
+        
+        if saveButton.title == Constant.SaveButtonTitle.add.rawValue {
+            let command = CoreDataManager.sharedManger.add(newNote: note)
+            if command.0 == true {
+                saveButton.title = Constant.SaveButtonTitle.update.rawValue
+            }
+        } else {
+            CoreDataManager.sharedManger.update(updateNote: note)
+        }
+
+    }
+    
+    @objc func tapDelete(sender: UIBarButtonItem) {
+        CoreDataManager.sharedManger.delete(isbn13: detailBook?.isbn13 ?? "")
+        noteTextView.text = ""
+    }
+    
     @objc func tapImage(_ sender: UITapGestureRecognizer) {
         
         guard let urlString = detailBook?.url,
@@ -220,7 +277,6 @@ class DetailViewController: UIViewController {
         }
         
         UIApplication.shared.open(url, options: [:])
-        
     }
     
     @objc func keyboardWillShow(notification:NSNotification) {
@@ -260,7 +316,6 @@ extension DetailViewController: UITextViewDelegate {
             textView.text = nil
             textView.textColor = .systemOrange
         }
-        
     }
     // TextView Place Holder
     func textViewDidEndEditing(_ textView: UITextView) {

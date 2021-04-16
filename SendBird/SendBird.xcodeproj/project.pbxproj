@@ -32,6 +32,9 @@
 		188FEBDD2608DA150062BEAC /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188FEBDC2608DA150062BEAC /* Detail.storyboard */; };
 		E98C49782626EB57009B560C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C49772626EB57009B560C /* ImageLoader.swift */; };
 		E98C49802627D300009B560C /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C497F2627D300009B560C /* UIImageLoader.swift */; };
+		E98C49AB26282D3F009B560C /* Notification.Name+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C49AA26282D3F009B560C /* Notification.Name+.swift */; };
+		E98C49B026283075009B560C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C49AF26283075009B560C /* Note.swift */; };
+		E98C49B526283FA6009B560C /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98C49B426283FA6009B560C /* CoreDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		188FEBDC2608DA150062BEAC /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		E98C49772626EB57009B560C /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		E98C497F2627D300009B560C /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
+		E98C49AA26282D3F009B560C /* Notification.Name+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification.Name+.swift"; sourceTree = "<group>"; };
+		E98C49AF26283075009B560C /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		E98C49B426283FA6009B560C /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,7 @@
 				1888FB42260CB9260091A33B /* Note+CoreDataClass.swift */,
 				1888FB43260CB9260091A33B /* Note+CoreDataProperties.swift */,
 				185CA2BD260CBA32004606A4 /* CoreDataManager.swift */,
+				E98C49B426283FA6009B560C /* CoreDataModel.swift */,
 				1888FB3C260CB6C20091A33B /* Note.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -209,6 +216,7 @@
 			children = (
 				1888FB3B260CB65B0091A33B /* CoreData */,
 				188D8F0C260797B400B57FB9 /* Book.swift */,
+				E98C49AF26283075009B560C /* Note.swift */,
 				188D8F0D260797B400B57FB9 /* BookSecton.swift */,
 			);
 			path = Model;
@@ -218,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				188D8F13260797C200B57FB9 /* BaseURL.swift */,
+				E98C49AA26282D3F009B560C /* Notification.Name+.swift */,
 				188D8F14260797C200B57FB9 /* UIImageView+.swift */,
 				18766646260B704C0097AEA7 /* CALayer+.swift */,
 				1888FB36260CB1230091A33B /* BooksConstant.swift */,
@@ -366,8 +375,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E98C49B526283FA6009B560C /* CoreDataModel.swift in Sources */,
 				188D8F282607985700B57FB9 /* BookCollectionViewCell.swift in Sources */,
 				188D8ECF2607969700B57FB9 /* AppDelegate.swift in Sources */,
+				E98C49B026283075009B560C /* Note.swift in Sources */,
 				188D8F15260797C200B57FB9 /* BaseURL.swift in Sources */,
 				18766647260B704C0097AEA7 /* CALayer+.swift in Sources */,
 				188638EE2607BDA0007E1A4F /* DetailViewController.swift in Sources */,
@@ -378,6 +389,7 @@
 				1888FB37260CB1230091A33B /* BooksConstant.swift in Sources */,
 				1888FB45260CB9260091A33B /* Note+CoreDataProperties.swift in Sources */,
 				188D8F0E260797B400B57FB9 /* Book.swift in Sources */,
+				E98C49AB26282D3F009B560C /* Notification.Name+.swift in Sources */,
 				188D8F252607985700B57FB9 /* SectionHeaderReusableView.swift in Sources */,
 				188D8F08260797A400B57FB9 /* BookAPIManager.swift in Sources */,
 				E98C49782626EB57009B560C /* ImageLoader.swift in Sources */,
